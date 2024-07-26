@@ -3,6 +3,7 @@ import React from "react";
 interface IUsers {
   id: number;
   name: string;
+  email: string;
 }
 
 // Data Source: Network (slowest) -> File System ->  Memory
@@ -18,12 +19,26 @@ const NewUser = async () => {
   const users: IUsers[] = await res.json(); // await twice
 
   return (
-    <ul>
+    <>
       {new Date().toLocaleTimeString()}
-      {users?.map((user) => (
-        <li key={user.id}>{user.name}</li>
-      ))}
-    </ul>
+      {/* table-bordered not applicable? */}
+      <table className="table table-bordered">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+          </tr>
+        </thead>
+        <tbody>
+          {users?.map((user) => (
+            <tr key={user.id}>
+              <td>{user.name}</td>
+              <td>{user.email}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </>
   );
 };
 
