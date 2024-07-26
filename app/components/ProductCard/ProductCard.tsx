@@ -1,9 +1,10 @@
 import React from "react";
-import Button from "./Button";
+import Button from "../Button";
+import styles from "./ProductCard.module.css";
 
 const ProductCard = () => {
   return (
-    <div>
+    <div className={styles.card}>
       <Button />
     </div>
   );
