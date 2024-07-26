@@ -6,9 +6,11 @@ import ProductCard from "./components/ProductCard/ProductCard";
 
 export default function Home() {
   return (
-    <main>
+    <main className="flex flex-col gap-3">
       <h1>Hello World</h1>
-      <Link href="/users">Users</Link>
+      <Link className="btn btn-primary w-fit" href="/users">
+        Users
+      </Link>
       <ProductCard />
     </main>
   );
