@@ -2,13 +2,15 @@ import Image from "next/image";
 import Link from "next/link";
 import ProductCard from "./components/ProductCard/ProductCard";
 
+// Files: page, layout, loading, route, not-found, error
+
 // ToDo Extension to organise imports and organise tw utility classes?
 
 export default function Home() {
   return (
     <main className="flex flex-col gap-3">
       <h1>Hello World</h1>
-      <Link className="btn btn-primary w-fit" href="/users">
+      <Link className="btn btn-primary w-fit" href="/users/new">
         Users
       </Link>
       <ProductCard />
