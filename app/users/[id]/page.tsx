@@ -1,4 +1,4 @@
-import React from "react";
+import React from "react"; // QQ - is this needed?
 
 interface Props {
   params: { id: number };
