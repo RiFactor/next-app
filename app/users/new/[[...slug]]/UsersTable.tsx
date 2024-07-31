@@ -23,15 +23,13 @@ const UsersTable = async ({ sortOrder }: IProps) => {
   });
   const users: IUsers[] = await res.json(); // await twice
   const sortedUsers =
-    sortOrder === "name"
-      ? sort(users).asc((u) => u.name)
-      : sortOrder === "nameDesc"
-      ? sort(users).desc((u) => u.name)
-      : sortOrder === "email"
-      ? sort(users).asc((u) => u.email)
-      : sortOrder === "emailDesc"
-      ? sort(users).desc((u) => u.email)
-      : users;
+    sortOrder === "nameDesc" || sortOrder === "emailDesc"
+      ? sort(users).desc(
+          sortOrder === "nameDesc" ? (u) => u.name : (u) => u.email
+        )
+      : sort(users).asc(
+          sortOrder === "email" ? (u) => u.email : (u) => u.name // default
+        );
 
   return (
     <table className="table table-bordered">
