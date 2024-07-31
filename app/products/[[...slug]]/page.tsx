@@ -1,15 +1,20 @@
 import React from "react";
 
 // [slug]
-// [...slug] // any number of slug params e.g. /products/dairy/milk
+// [...slug] // any number of slug params e.g. /products/grocery/bread/loaves
 // [...slug] // optional slugs e.g. 0 therefore only /products
 
 interface Props {
   params: { slug: string[] };
+  searchParams: { sortOrder: string }; // /products?sortOrder=this
 }
 
-const page = ({ params: { slug } }: Props) => {
-  return <div>Product page {slug}</div>;
+const page = ({ params: { slug }, searchParams: { sortOrder } }: Props) => {
+  return (
+    <div>
+      Product page {slug} sortOrder {sortOrder}
+    </div>
+  );
 };
 
 export default page;
