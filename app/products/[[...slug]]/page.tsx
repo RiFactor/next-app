@@ -12,6 +12,7 @@ interface Props {
 const page = ({ params: { slug }, searchParams: { sortOrder } }: Props) => {
   return (
     <div>
+      <h1>Products</h1>
       Product page {slug} sortOrder {sortOrder}
     </div>
   );

@@ -3,10 +3,11 @@ import React from "react";
 
 const NavBar = () => {
   return (
-    <nav className="flex flex-col gap-2 bg-blue-200">
-      <Link href="/">Home</Link>
+    <nav className="flex gap-2 bg-slate-200 p-5">
+      <Link href="/">Next.js</Link>
       <Link href="/admin">Admin</Link>
       <Link href="/users/new">Users</Link>
+      <Link href="/products">Products</Link>
     </nav>
   );
 };
