@@ -1,3 +1,4 @@
+import { notFound } from "next/navigation";
 import React from "react"; // QQ - is this needed?
 
 interface Props {
@@ -5,6 +6,8 @@ interface Props {
 }
 
 const UserDetail = ({ params: { id } }: Props) => {
+  if (id > 10) notFound();
+
   return <div>User {id}</div>;
 };
 
