@@ -1,4 +1,5 @@
 import { sort } from "fast-sort";
+import Link from "next/link";
 
 interface IUsers {
   id: number;
@@ -13,23 +14,22 @@ interface IUsers {
 
 interface IProps {
   sortOrder: string;
-  sortEmailOrder: string;
 }
 
-const UsersTable = async ({ sortOrder, sortEmailOrder }: IProps) => {
+const UsersTable = async ({ sortOrder }: IProps) => {
   const res = await fetch("https://jsonplaceholder.typicode.com/users", {
     // cache: "no-store", // stop default file/data-storage from nextjs, only on fetch fn, not 3rd part libs like axios
-    next: { revalidate: 10 }, // refresh every 10 seconds
+    next: { revalidate: 10 }, // r  efresh every 10 seconds
   });
   const users: IUsers[] = await res.json(); // await twice
   const sortedUsers =
-    sortOrder === "asc"
+    sortOrder === "name"
       ? sort(users).asc((u) => u.name)
-      : sortOrder === "desc"
+      : sortOrder === "nameDesc"
       ? sort(users).desc((u) => u.name)
-      : sortEmailOrder === "asc"
+      : sortOrder === "email"
       ? sort(users).asc((u) => u.email)
-      : sortEmailOrder === "desc"
+      : sortOrder === "emailDesc"
       ? sort(users).desc((u) => u.email)
       : users;
 
@@ -37,8 +37,28 @@ const UsersTable = async ({ sortOrder, sortEmailOrder }: IProps) => {
     <table className="table table-bordered">
       <thead>
         <tr>
-          <th>Name</th>
-          <th>Email</th>
+          <th>
+            <Link
+              href={
+                sortOrder === "name"
+                  ? "/users/new?sortOrder=nameDesc"
+                  : "/users/new?sortOrder=name"
+              }
+            >
+              Name
+            </Link>
+          </th>
+          <th>
+            <Link
+              href={
+                sortOrder === "email"
+                  ? "/users/new?sortOrder=emailDesc"
+                  : "/users/new?sortOrder=email"
+              }
+            >
+              Email
+            </Link>
+          </th>
         </tr>
       </thead>
       <tbody>
