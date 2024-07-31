@@ -39,8 +39,8 @@ const UsersTable = async ({ sortOrder }: IProps) => {
             <Link
               href={
                 sortOrder === "name"
-                  ? "/users/new?sortOrder=nameDesc"
-                  : "/users/new?sortOrder=name"
+                  ? "/users?sortOrder=nameDesc"
+                  : "/users?sortOrder=name"
               }
             >
               Name
@@ -50,8 +50,8 @@ const UsersTable = async ({ sortOrder }: IProps) => {
             <Link
               href={
                 sortOrder === "email"
-                  ? "/users/new?sortOrder=emailDesc"
-                  : "/users/new?sortOrder=email"
+                  ? "/users?sortOrder=emailDesc"
+                  : "/users?sortOrder=email"
               }
             >
               Email

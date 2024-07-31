@@ -10,7 +10,7 @@ export default function Home() {
   return (
     <main className="flex flex-col gap-3">
       <h1>Hello World</h1>
-      <Link className="btn btn-primary w-fit" href="/users/new">
+      <Link className="btn btn-primary w-fit" href="/users">
         Users
       </Link>
       <ProductCard />

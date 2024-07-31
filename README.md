@@ -24,7 +24,7 @@ This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-opti
 ## Build
 
 ```bash
-# close all sites
+# close all sites + run both lines consecutively
 yarn run build
 yarn run start
 ```
