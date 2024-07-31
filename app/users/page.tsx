@@ -1,10 +1,11 @@
-import React from "react";
+import React, { Suspense } from "react";
 import UsersTable from "./UsersTable";
 import Link from "next/link";
 
 interface IProps {
   searchParams: { sortOrder: string }; // /products?sortOrder=asc
 }
+
 const NewUser = async ({ searchParams: { sortOrder } }: IProps) => {
   return (
     <>
@@ -15,7 +16,9 @@ const NewUser = async ({ searchParams: { sortOrder } }: IProps) => {
       {new Date().toLocaleTimeString()}
       {/* NB: in prod, w/ cache enabled, the time will be statically rendered (won't change on page refresh) */}
       {/* table-bordered not applicable? */}
-      <UsersTable sortOrder={sortOrder} />
+      <Suspense fallback={<p>Loading...</p>}>
+        <UsersTable sortOrder={sortOrder} />
+      </Suspense>
     </>
   );
 };
