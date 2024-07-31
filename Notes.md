@@ -1,4 +1,11 @@
-#
+### Fundamentals - Static & Dynamic Rendering
+
+Rendering: client / server
+server: static (build) / dynamic (request)
+
+If data is cached, react will cache it and not update on refresh // NB diff b'ween this and network request
+
+###
 
 [[]] // filename - optional param
 
