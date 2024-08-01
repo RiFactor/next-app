@@ -1,4 +1,5 @@
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
+// https://developer.mozilla.org/en-US/docs/Web/HTTP/Status
 
 // /api/users/4
 export function GET(

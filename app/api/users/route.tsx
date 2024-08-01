@@ -9,3 +9,13 @@ export function GET(request: NextRequest) {
     { id: 2, fruit: "oranges" },
   ]);
 }
+
+export async function POST(request: NextRequest) {
+  // ToDo - not working (on Postman) // body -> raw -> json
+  const body = await request.json();
+  // Validate
+  if (!body.name)
+    return NextResponse.json({ error: "Name is required" }, { status: 400 });
+
+  return NextResponse.json({ id: 1, name: body.name }, { status: 201 }); // auto sends 200, 201 means created
+}
