@@ -60,6 +60,7 @@ If data is cached, react will cache it and not update on refresh // NB diff b'we
 
 ###
 
+[id] // param routes - arbitrary id name (order matters)
 [[]] // filename - optional param
 
 ### Link - Navigation
