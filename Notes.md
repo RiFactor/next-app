@@ -5,6 +5,9 @@
 page, layout, loading, not-found, error (can also create error files on diff routes for custom errors)
 global-error.tsx // for global (root) layout errors - won't be captured in error.tsx file
 
+page (display markup to user) OR route (handle HTTP request) file in a folder - not both.
+'api' folder name - not required but good practise
+
 ### Markdown
 
 bash / shell / js / ts / tsx
