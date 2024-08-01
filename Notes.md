@@ -2,7 +2,8 @@
 
 ### Special files
 
-page, layout, loading, not-found
+page, layout, loading, not-found, error (can also create error files on diff routes for custom errors)
+global-error.tsx // for global (root) layout errors - won't be captured in error.tsx file
 
 ### Markdown
 
@@ -13,6 +14,15 @@ bash / shell / js / ts / tsx
 clg // console log
 rafce // arrow fn
 div.mb-3>input+label // short-hand
+
+### Syntax
+
+&apos; // '
+
+```ts
+<p>The requested page doesn't exist</p>
+<p>The requested page doesn&apos;t exist</p>
+```
 
 ### React Dev Tools
 

@@ -17,9 +17,10 @@ interface IProps {
 }
 
 const UsersTable = async ({ sortOrder }: IProps) => {
+  // NB: Error - create erroneous baseUrl to see default error message - will appear in build mode
   const res = await fetch("https://jsonplaceholder.typicode.com/users", {
     // cache: "no-store", // stop default file/data-storage from nextjs, only on fetch fn, not 3rd part libs like axios
-    next: { revalidate: 10 }, // r  efresh every 10 seconds
+    next: { revalidate: 10 }, // refresh every 10 seconds
   });
   const users: IUsers[] = await res.json(); // await twice
   const sortedUsers =
