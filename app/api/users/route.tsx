@@ -11,7 +11,7 @@ export function GET(request: NextRequest) {
 }
 
 export async function POST(request: NextRequest) {
-  // ToDo - not working (on Postman) // body -> raw -> json
+  // POSTMAN: body -> raw -> json
   const body = await request.json();
   // Validate
   if (!body.name)
