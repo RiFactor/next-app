@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import schema from "./schema";
 
 // /api/users
 export function GET(request: NextRequest) {
@@ -13,10 +14,17 @@ export function GET(request: NextRequest) {
 export async function POST(request: NextRequest) {
   // POSTMAN: body -> raw -> json
   const body = await request.json();
-  // Validate
-  if (!body.name) // falsy inc. empty string
-    return NextResponse.json({ error: "Name is required" }, { status: 400 });
+  const validation = schema.safeParse(body);
 
-  return NextResponse.json({ id: 1, // db should create id
-     name: body.name }, { status: 201 }); // auto sends 200, 201 means created
+  if (!validation.success)
+    // falsy inc. empty string
+    return NextResponse.json(validation.error.errors, { status: 400 });
+
+  return NextResponse.json(
+    {
+      id: 1, // db should create id
+      name: body.name,
+    },
+    { status: 201 }
+  ); // auto sends 200, 201 means created
 }
