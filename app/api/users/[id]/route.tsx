@@ -12,11 +12,12 @@ export function GET(
   return NextResponse.json({ id: params.id, name: "user" });
 }
 
-export async function PUT(
+export async function PUT( // PUT - replace, PATCH: update properties
   request: NextRequest,
   { params }: { params: { id: number } }
 ) {
   if (params.id > 10)
+    // Mosh checks body before checking for user
     return NextResponse.json({ error: "User Not Found", status: 404 });
 
   const body = await request.json();
@@ -24,5 +25,5 @@ export async function PUT(
     return NextResponse.json({ error: "Name is required" }, { status: 400 });
   }
 
-  return NextResponse.json({ id: params.id, name: body.name });
+  return NextResponse.json({ id: params.id, name: body.name }); // ToDo status not working here
 }

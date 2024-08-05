@@ -14,8 +14,9 @@ export async function POST(request: NextRequest) {
   // POSTMAN: body -> raw -> json
   const body = await request.json();
   // Validate
-  if (!body.name)
+  if (!body.name) // falsy inc. empty string
     return NextResponse.json({ error: "Name is required" }, { status: 400 });
 
-  return NextResponse.json({ id: 1, name: body.name }, { status: 201 }); // auto sends 200, 201 means created
+  return NextResponse.json({ id: 1, // db should create id
+     name: body.name }, { status: 201 }); // auto sends 200, 201 means created
 }
