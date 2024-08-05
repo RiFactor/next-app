@@ -27,3 +27,13 @@ export async function PUT( // PUT - replace, PATCH: update properties
 
   return NextResponse.json({ id: params.id, name: body.name }); // ToDo status not working here
 }
+
+export function DELETE(
+  request: NextResponse,
+  { params }: { params: { id: number } }
+) {
+  if (params.id > 10)
+    return NextResponse.json({ error: "User Not Found", status: 404 });
+  // delete user fetch from db, 404 if found, delete, return 200
+  return NextResponse.json({}); // optionally return deleted obj - preference
+}
