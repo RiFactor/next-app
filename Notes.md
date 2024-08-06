@@ -1,6 +1,6 @@
-## General
+## MySQL
 
-### Download
+NB: do not touch migration files o/w have to resync and lose all table data!
 
 #### Set Up
 
@@ -24,6 +24,8 @@
 - "+" to add connection
 - QQ didn't add /nextapp (db) when using mySQL workbench, where to add / why still working
 - \_prisma_migration - private, implementation detail
+
+## General
 
 ### Special files
 
