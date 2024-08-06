@@ -50,14 +50,22 @@ export async function PUT( // PUT - replace, PATCH: update properties
   return NextResponse.json(updatedUser); // ToDo status not working here
 }
 
-export function DELETE(
+export async function DELETE(
   request: NextResponse,
   { params }: { params: { id: string } }
 ) {
   const paramId = parseInt(params.id);
+  const user = await prisma.user.findUnique({
+    where: { id: paramId },
+  });
 
-  if (paramId > 10)
+  if (!user)
     return NextResponse.json({ error: "User Not Found" }, { status: 404 });
-  // delete user fetch from db, 404 if found, delete, return 200
+  // return 200
+
+  const deletedUser = await prisma.user.delete({
+    where: { id: paramId }, // user.id as string works?
+  });
+
   return NextResponse.json({}); // optionally return deleted obj - preference
 }
