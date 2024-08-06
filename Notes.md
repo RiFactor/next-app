@@ -1,5 +1,18 @@
 ## General
 
+### Download
+
+- MySQl » scroll down: MySQL Community (GPL) Downloads » MySQL Community Server (Arm for M1)
+- MySql workbench
+- Prisma extension & yarn
+  - $ npx prisma - see commands
+  - $ npx prisma init
+- add .env to gitignore & update url
+- schema.prisma file update db provider
+
+- format schema
+- $ npx prisma format
+
 ### Special files
 
 page, layout, loading, not-found, error (can also create error files on diff routes for custom errors)
