@@ -24,6 +24,7 @@ NB: do not touch migration files o/w have to resync and lose all table data!
 - "+" to add connection
 - QQ didn't add /nextapp (db) when using mySQL workbench, where to add / why still working
 - \_prisma_migration - private, implementation detail
+- Add record: right click table - selecgt 1000 rows, '+' on bottom panel, 'Apply' - poss better way
 
 ## General
 
