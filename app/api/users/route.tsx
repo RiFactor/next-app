@@ -21,15 +21,32 @@ export async function POST(request: NextRequest) {
   const body = await request.json();
   const validation = schema.safeParse(body);
 
+  const user = await prisma.user.findUnique({
+    // need await!
+    where: {
+      email: body.email,
+    },
+  });
+
+  if (user) {
+    return NextResponse.json(
+      { error: "User with this email exists" },
+      { status: 400 }
+    );
+  }
+
   if (!validation.success)
     // falsy inc. empty string
-    return NextResponse.json(validation.error.errors, { status: 400 });
+    return NextResponse.json(validation.error.errors, { status: 400 }); // not seeing validation message on Postman
 
-  return NextResponse.json(
-    {
-      id: 1, // db should create id
+  const newUser = await prisma.user.create({
+    // body // dangerous
+    data: {
       name: body.name,
+      email: body.email,
+      // other fields have default values
     },
-    { status: 201 }
-  ); // auto sends 200, 201 means created
+  });
+
+  return NextResponse.json(newUser, { status: 201 }); // auto sends 200, 201 means created
 }
