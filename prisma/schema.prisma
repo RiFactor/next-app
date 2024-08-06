@@ -15,6 +15,7 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+// Refactor - should be users
 model User {
   id           Int      @id @default(autoincrement())
   email        String   @unique
@@ -22,4 +23,11 @@ model User {
   followers    Int      @default(0)
   isActive     Boolean  @default(true)
   registeredAt DateTime @default(now())
+}
+
+model Products {
+  id    Int    @id @default(autoincrement())
+  name  String @unique
+  price Float
+  // category 
 }
