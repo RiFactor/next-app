@@ -22,9 +22,13 @@ export async function PUT( // PUT - replace, PATCH: update properties
   request: NextRequest,
   { params }: { params: { id: string } }
 ) {
-  const paramId = parseInt(params.id);
+  const user = await prisma.user.findUnique({
+    where: {
+      id: parseInt(params.id),
+    },
+  });
 
-  if (paramId > 10)
+  if (!user)
     // Mosh checks body before checking for user
     return NextResponse.json({ error: "User Not Found" }, { status: 404 });
 
@@ -35,7 +39,15 @@ export async function PUT( // PUT - replace, PATCH: update properties
     return NextResponse.json(validation.error.errors, { status: 400 });
   }
 
-  return NextResponse.json({ id: paramId, name: body.name }); // ToDo status not working here
+  const updatedUser = await prisma.user.update({
+    where: { id: parseInt(params.id) },
+    data: {
+      name: body.name,
+      email: body.email,
+    },
+  });
+
+  return NextResponse.json(updatedUser); // ToDo status not working here
 }
 
 export function DELETE(
