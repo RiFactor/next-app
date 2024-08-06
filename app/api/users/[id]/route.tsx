@@ -1,25 +1,32 @@
 import { NextRequest, NextResponse } from "next/server";
 import schema from "../schema";
+import prisma from "@/prisma/client";
 // https://developer.mozilla.org/en-US/docs/Web/HTTP/Status
 
 // /api/users/4
-export function GET(
+export async function GET(
   request: NextResponse,
-  { params }: { params: { id: number } }
+  { params }: { params: { id: string } }
 ) {
-  if (params.id > 10)
-    return NextResponse.json({ error: "User Not Found", status: 404 });
+  const user = await prisma.user.findUnique({
+    where: { id: parseInt(params.id) },
+  });
 
-  return NextResponse.json({ id: params.id, name: "user" });
+  if (!user)
+    return NextResponse.json({ error: "User Not Found" }, { status: 404 });
+
+  return NextResponse.json(user);
 }
 
 export async function PUT( // PUT - replace, PATCH: update properties
   request: NextRequest,
-  { params }: { params: { id: number } }
+  { params }: { params: { id: string } }
 ) {
-  if (params.id > 10)
+  const paramId = parseInt(params.id);
+
+  if (paramId > 10)
     // Mosh checks body before checking for user
-    return NextResponse.json({ error: "User Not Found", status: 404 });
+    return NextResponse.json({ error: "User Not Found" }, { status: 404 });
 
   const body = await request.json();
   const validation = schema.safeParse(body);
@@ -28,15 +35,17 @@ export async function PUT( // PUT - replace, PATCH: update properties
     return NextResponse.json(validation.error.errors, { status: 400 });
   }
 
-  return NextResponse.json({ id: params.id, name: body.name }); // ToDo status not working here
+  return NextResponse.json({ id: paramId, name: body.name }); // ToDo status not working here
 }
 
 export function DELETE(
   request: NextResponse,
-  { params }: { params: { id: number } }
+  { params }: { params: { id: string } }
 ) {
-  if (params.id > 10)
-    return NextResponse.json({ error: "User Not Found", status: 404 });
+  const paramId = parseInt(params.id);
+
+  if (paramId > 10)
+    return NextResponse.json({ error: "User Not Found" }, { status: 404 });
   // delete user fetch from db, 404 if found, delete, return 200
   return NextResponse.json({}); // optionally return deleted obj - preference
 }
