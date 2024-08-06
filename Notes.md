@@ -2,6 +2,8 @@
 
 ### Download
 
+#### Set Up
+
 - MySQl » scroll down: MySQL Community (GPL) Downloads » MySQL Community Server (Arm for M1)
 - MySql workbench
 - Prisma extension & yarn
@@ -10,8 +12,18 @@
 - add .env to gitignore & update url
 - schema.prisma file update db provider
 
-- format schema
-- $ npx prisma format
+- format schema: $ npx prisma format
+
+#### Migrations
+
+- $ npx prisma migrate dev // relational db
+- ( $ npx prisma db push // for Mongo - noSQL)
+
+### MySQL Workbench (or DataGrip - not free)
+
+- "+" to add connection
+- QQ didn't add /nextapp (db) when using mySQL workbench, where to add / why still working
+- \_prisma_migration - private, implementation detail
 
 ### Special files
 
