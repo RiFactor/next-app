@@ -2,6 +2,11 @@
 
 Options: Amazon s3, Google Cloud, Microsoft Azure, Cloudinary
 Cloudinary: integrated w/ next.js. create a/c then set up
+(save all to see progress)
+
+Cloudinary - see files:
+
+- Programmable Media > Media Libary -> Assets
 
 ## MySQL
 
