@@ -1,3 +1,8 @@
+### Cloud Storage
+
+Options: Amazon s3, Google Cloud, Microsoft Azure, Cloudinary
+Cloudinary: integrated w/ next.js. create a/c then set up
+
 ## MySQL
 
 NB: do not touch migration files o/w have to resync and lose all table data!
@@ -12,7 +17,7 @@ NB: do not touch migration files o/w have to resync and lose all table data!
 - add .env to gitignore & update url
 - schema.prisma file update db provider
 
-- format schema: $ npx prisma format
+- format schema: $ npx prisma format // prettier works fine
 
 #### Migrations
 

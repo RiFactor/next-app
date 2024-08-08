@@ -7,6 +7,52 @@
   resolved "https://registry.yarnpkg.com/@alloc/quick-lru/-/quick-lru-5.2.0.tgz#7bf68b20c0a350f936915fcae06f58e32007ce30"
   integrity sha512-UrcABB+4bUrFABwbluTIBErXwvbsU/V7TZWfmbgJfbkwiBuziS9gxdODUyuiecfdGQ85jglMW6juS3+z5TsKLw==
 
+"@cloudinary-util/types@1.2.0":
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/@cloudinary-util/types/-/types-1.2.0.tgz#c67ee4c4948236327872239165bf798eeeb899c5"
+  integrity sha512-2Mo5juB1HV+GmVLq2+bU0Yg5FB6r+csbHyDN6njc0AqkEkp+AW+Q6kYbbTYkT7zk3x9tBWfKn3lfR7wUCwowJw==
+
+"@cloudinary-util/types@1.2.0-beta.1":
+  version "1.2.0-beta.1"
+  resolved "https://registry.yarnpkg.com/@cloudinary-util/types/-/types-1.2.0-beta.1.tgz#ba3461e97a26ba8d9d0d733dd983f504a3db0303"
+  integrity sha512-zdMPqadGhRWwSZQcgsUoouJhr2Dnpc4p1ytGLtnEmVFNvwDhYMR6ER3xLP5FoSNzPx10SoWfNl6UWQKInkk+iQ==
+
+"@cloudinary-util/url-loader@5.6.0":
+  version "5.6.0"
+  resolved "https://registry.yarnpkg.com/@cloudinary-util/url-loader/-/url-loader-5.6.0.tgz#778c9b09faa02edd19702e742c931ce9927a7790"
+  integrity sha512-oWTXaaBralKLfk9tD2fWaTfwflx9Acug6L3GO72sLPxIssg+SyeNDiIrNwIFRx6SkFR74bWWNqjp2yu135gaDQ==
+  dependencies:
+    "@cloudinary-util/types" "1.2.0-beta.1"
+    "@cloudinary-util/util" "3.2.0"
+    "@cloudinary/url-gen" "1.15.0"
+    zod "^3.22.4"
+
+"@cloudinary-util/util@3.2.0", "@cloudinary-util/util@^3.2.0":
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/@cloudinary-util/util/-/util-3.2.0.tgz#cdfb15ca0f04063203109ffbf3a5bc6de7f94c2b"
+  integrity sha512-VJBqAT3W0HQ9kyMagv+EzXkM/VYR9Ks01ewGxsS8T8b2N0NZFPAhYKeU2H9fOXSl6BVrD6aVYjJZAoT8pfQIyA==
+
+"@cloudinary/transformation-builder-sdk@^1.10.0", "@cloudinary/transformation-builder-sdk@^1.14.0":
+  version "1.14.1"
+  resolved "https://registry.yarnpkg.com/@cloudinary/transformation-builder-sdk/-/transformation-builder-sdk-1.14.1.tgz#aa2a75b1c04ddba84f92d2ac3ce29d29a8c1cbca"
+  integrity sha512-z49To4r3byg7zHsOGKsw/nHef5B9W3wSBdDsGoY7JOj75kbvmSlP4MCkS0JU3Bv57EvYYw5ymalPz+bvRXmPlA==
+  dependencies:
+    "@cloudinary/url-gen" "^1.7.0"
+
+"@cloudinary/url-gen@1.15.0":
+  version "1.15.0"
+  resolved "https://registry.yarnpkg.com/@cloudinary/url-gen/-/url-gen-1.15.0.tgz#a55c9b51cb27301e0bdc4d60e44a7e73d13db103"
+  integrity sha512-bjU67eZxLUgoRy/Plli4TQio7q6P31OYqnEgXxeN9TKXrzr6h0DeEdIUhKI9gy3HkEBWXWWJIPh7j7gkOJPnyA==
+  dependencies:
+    "@cloudinary/transformation-builder-sdk" "^1.10.0"
+
+"@cloudinary/url-gen@^1.7.0":
+  version "1.20.0"
+  resolved "https://registry.yarnpkg.com/@cloudinary/url-gen/-/url-gen-1.20.0.tgz#1b4c2433fda9d14a515ba6582d10243b9fc64ad9"
+  integrity sha512-SWtxDOZeROocIYhubtlrSvKlf1H7wBeVaIWqOOvz8TxbHvMLZanRHyNUv8YSxIsrzrjkLk1sI0Q2fr+6FkcqzA==
+  dependencies:
+    "@cloudinary/transformation-builder-sdk" "^1.14.0"
+
 "@eslint-community/eslint-utils@^4.2.0":
   version "4.4.0"
   resolved "https://registry.yarnpkg.com/@eslint-community/eslint-utils/-/eslint-utils-4.4.0.tgz#a23514e8fb9af1269d5f7788aa556798d61c6b59"
@@ -238,6 +284,11 @@
   dependencies:
     "@swc/counter" "^0.1.3"
     tslib "^2.4.0"
+
+"@tsconfig/recommended@^1.0.7":
+  version "1.0.7"
+  resolved "https://registry.yarnpkg.com/@tsconfig/recommended/-/recommended-1.0.7.tgz#fdd95fc2c8d643c8b4a8ca45fd68eea248512407"
+  integrity sha512-xiNMgCuoy4mCL4JTywk9XFs5xpRUcKxtWEcMR6FNMtsgewYTIgIR+nvlP4A4iRCAzRsHMnPhvTRrzp4AGcRTEA==
 
 "@types/json5@^0.0.29":
   version "0.0.29"
@@ -1902,6 +1953,16 @@ natural-compare@^1.4.0:
   resolved "https://registry.yarnpkg.com/natural-compare/-/natural-compare-1.4.0.tgz#4abebfeed7541f2c27acfb29bdbbd15c8d5ba4f7"
   integrity sha512-OWND8ei3VtNC9h7V60qff3SVobHr996CTwgxubgyQYEpg290h9J0buyECNNJexkFm5sOajh5G116RYA1c8ZMSw==
 
+next-cloudinary@^6.10.0:
+  version "6.10.0"
+  resolved "https://registry.yarnpkg.com/next-cloudinary/-/next-cloudinary-6.10.0.tgz#e40272dc850d8c8445b8c6525b63390e5439ef48"
+  integrity sha512-iGKg4bPAkGjrWQDovbqQJVb3VPzj6TESgEk46D+dS3cVaFJqnVjwGtGlK9wLA/KX7lhZinvnHvouufuiL7f9ig==
+  dependencies:
+    "@cloudinary-util/types" "1.2.0"
+    "@cloudinary-util/url-loader" "5.6.0"
+    "@cloudinary-util/util" "^3.2.0"
+    "@tsconfig/recommended" "^1.0.7"
+
 next@14.2.5:
   version "14.2.5"
   resolved "https://registry.yarnpkg.com/next/-/next-14.2.5.tgz#afe4022bb0b752962e2205836587a289270efbea"
@@ -2831,7 +2892,7 @@ yocto-queue@^0.1.0:
   resolved "https://registry.yarnpkg.com/yocto-queue/-/yocto-queue-0.1.0.tgz#0294eb3dee05028d31ee1a5fa2c556a6aaf10a1b"
   integrity sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==
 
-zod@^3.23.8:
+zod@^3.22.4, zod@^3.23.8:
   version "3.23.8"
   resolved "https://registry.yarnpkg.com/zod/-/zod-3.23.8.tgz#e37b957b5d52079769fb8097099b592f0ef4067d"
   integrity sha512-XBx9AXhXktjUqnepgTiE5flcKIYWi/rme0Eaj+5Y0lftuGBq+jyRu/md4WnuxqgP1ubdpNCsYEYPxrzVHD8d6g==
